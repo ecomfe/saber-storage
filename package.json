@@ -1,0 +1,24 @@
+{
+    "name"       : "saber-storage",
+    "version"    : "0.1.0",
+    "description": "移动端的本地存储库",
+    "main"       : "main.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts"    : {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository" : {
+        "type": "git",
+        "url" : "https://github.com/ecomfe/saber-storage.git"
+    },
+    "keywords"   : [
+        "localstorage", "storage"
+    ],
+    "author"     : "redmed",
+    "license"    : "BSD",
+    "bugs"       : {
+        "url": "https://github.com/ecomfe/saber-storage/issues"
+    }
+}

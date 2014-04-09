@@ -2,7 +2,7 @@
     "name"       : "saber-storage",
     "version"    : "0.1.0",
     "description": "移动端的本地存储库",
-    "main"       : "main.js",
+    "main"       : "storage.js",
     "directories": {
         "test": "test"
     },

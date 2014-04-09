@@ -1,4 +1,4 @@
-define(function (require) {
+define( function ( require ) {
     var STORAGE_ID = '_SABER',
 
         isSupportLocalStorage = (function () {
@@ -86,4 +86,4 @@ define(function (require) {
     };
 
     return new LocalStorage();
-});
+} );

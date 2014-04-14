@@ -8,7 +8,7 @@ define( function ( require ) {
 
     STORAGE_ID = '_SABER';
     EVENT = {
-        OUT_OF_SPACE: 'Out of space limit'
+        OUT_OF_LIMIT: 'Out of space limit'
     };
 
     isSupportLocalStorage = (function () {
@@ -57,7 +57,7 @@ define( function ( require ) {
     };
 
     /**
-     * 实现简单的事件派发机制
+     * 实现简单的事件派发机制，用于Event中事件的派发
      */
     var SimpleEmitter = function () { };
 
@@ -107,13 +107,22 @@ define( function ( require ) {
     LocalStorage.Event = EVENT;
 
     LocalStorage.prototype = {
+        /**
+         * 判断是否支持本地存储
+         *
+         * @return {Boolean}
+         */
         isSupport: function() {
             return isSupportLocalStorage;
         },
+
         /**
+         * 存入数据
          *
-         * @param key
-         * @param val
+         * @param {String} key
+         * @param {Object} val
+         * @return {Boolean} 存储成功返回true；存储失败返回false，并抛出Stroage.Event.OUT_OF_LIMIT事件
+         * 注意：value会使用环境内置的JSON.stringify方法序列化。其中undefined在Object结构下会被忽略，在Array结构下会被转换为null，使用时请注意！
          */
         setItem: function ( key, val ) {
             var data = this._getData();
@@ -122,36 +131,53 @@ define( function ( require ) {
                 localStorage.setItem( this.storageId, stringify( data ) );
                 return true;
             } catch (err) {
-                this.emit( EVENT.OUT_OF_SPACE, err );
+                this.emit( EVENT.OUT_OF_LIMIT, err );
                 return false;
             }
         },
 
+        /**
+         * 根据key返回数据
+         *
+         * @param {String} key
+         * @returns {Object}
+         */
         getItem: function ( key ) {
             return this._getData()[key];
         },
 
+        /**
+         * 移除某键位下的数据
+         *
+         * @param {String} key
+         */
         removeItem: function ( key ) {
             var data = this._getData();
             delete data[key];
             this.storage.setItem( this.storageId, stringify( data ) );
         },
 
+        /**
+         * 清空已持久化的数据
+         *
+         */
         clear: function () {
             this.storage.removeItem( this.storageId );
         },
 
+        /**
+         * 获得持久化数据的key
+         *
+         * @returns {Array}
+         */
         key: function () {
             return Object.keys( this._getData() );
         },
 
-        length: function () {
-            return this.key().length;
-        },
-
         /**
-         * 将全部的数据存于localStorage的一个key下
+         * 获取存于STORAGE_ID下的数据
          * @return {Object}
+         *
          * @private
          */
         _getData: function () {

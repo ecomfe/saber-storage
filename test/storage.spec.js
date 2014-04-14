@@ -47,14 +47,6 @@ define( function () {
             } );
         } );
 
-        describe( '.length()', function () {
-            it( 'Length property is right!', function () {
-                var len = Object.keys( testData ).length;
-                expect( storage.length() ).toBe( len );
-            } );
-        } );
-
-
         describe( '.removeItem( key )', function () {
             it( 'RemoveItem success!', function () {
                 var key = 'str';
@@ -75,14 +67,14 @@ define( function () {
         } );
 
 
-        describe( '.on(Storage.Event.OUT_OF_SPACE, function(err) {} )', function () {
+        describe( '.on(Storage.Event.OUT_OF_LIMIT, function(err) {} )', function () {
 
             storage.clear();
 
             var overLimit = false;
 
             it( 'Event emit success!', function ( done ) {
-                storage.on( Storage.Event.OUT_OF_SPACE, function ( error ) {
+                storage.on( Storage.Event.OUT_OF_LIMIT, function ( error ) {
                     overLimit = true;
                     expect( overLimit ).toEqual( true );
                     done();

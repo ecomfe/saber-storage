@@ -7,7 +7,7 @@
         "test": "test"
     },
     "scripts"    : {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"
     },
     "repository" : {
         "type": "git",
@@ -16,8 +16,11 @@
     "keywords"   : [
         "localstorage", "storage"
     ],
+    "devDependencies": {
+        "phantomjs": "~1.9"
+    },
     "author"     : "redmed",
-    "license"    : "BSD",
+    "license"    : "MIT",
     "bugs"       : {
         "url": "https://github.com/ecomfe/saber-storage/issues"
     }

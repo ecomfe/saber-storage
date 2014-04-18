@@ -4,7 +4,6 @@
 移动端本地存储模块
   
 ##Usage
-    
 ```javascript
 
 	var Storage = require( 'saber-storage' );
@@ -90,6 +89,3 @@ memoryCache: 是否开启内存级别缓存，即只存储至页面变量中，�
 ** .on(eventName:String, callback:Function):void **
 
 事件绑定。目前只支持*Storage.Event.OUT_OF_LIMIT*事件。
-
-  
-

@@ -76,7 +76,7 @@ define( function () {
             it( 'Event emit success!', function ( done ) {
                 storage.on( Storage.Event.OUT_OF_LIMIT, function ( error ) {
                     overLimit = true;
-                    expect( overLimit ).toEqual( true );
+                    expect( true ).toEqual( true );
                     done();
                 } );
             } );
@@ -135,7 +135,6 @@ define( function () {
                  } );
                  }*/
             }
-
 
             iteration();
 

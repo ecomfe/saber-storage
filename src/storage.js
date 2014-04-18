@@ -97,14 +97,22 @@ define( function ( require ) {
         return obj;
     };
 
+    /**
+     * 构造函数
+     *
+     * @param {Object} options 配置项
+     * @param {String} options.storageId 存储命名空间，默认存储在_SABER命名空间下
+     * @param {Boolean} options.memoryCache 是否开启内存级别缓存，即只存储至内存变量中，而不持久化数据。默认false。
+     * @constructor
+     */
     var LocalStorage = function ( options ) {
-        options = options || {};
-        this.storageId = options.storageId || STORAGE_ID;
-        this.options = options;
-        this.storage = isSupportLocalStorage ? window.localStorage : storage;
+        opt = options || {};
+        this.storageId = opt.storageId || STORAGE_ID;
+        this.memoryCache = !!opt.memoryCache;
+        this.storage = (isSupportLocalStorage && !this.memoryCache) ? window.localStorage : storage;
     };
 
-    LocalStorage.Event = EVENT;
+    LocalStorage.Event = LocalStorage.prototype.Event = EVENT;
 
     LocalStorage.prototype = {
         /**

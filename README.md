@@ -55,37 +55,37 @@ storageId: 存储命名空间，默认存储在"_SABER"命名空间下
 memoryCache: 是否开启内存级别缓存，即只存储至页面变量中，而不持久化数据。默认false。
 
 ###Events
-** Storage.Event.OUT_OF_LIMIT **
+__Storage.Event.OUT_OF_LIMIT__
 
 存储空间溢出事件。当本次存储超出时，会派发该事件。需要提前监听。
 
 常见浏览器支持空间为5M左右。
 
 ###Methods
-** .isSupport():Boolean ** 
+__.isSupport():Boolean__
 
 判断是否支持本地存储
 
-** .setItem( key:String, val:\* ):Boolean **
+__.setItem( key:String, val:\* ):Boolean__
 
 存入数据
 
-** .getItem( key:String ):\* **
+__.getItem( key:String ):\*__
 
 根据key返回数据
 
-** .removeItem( key:String ):void **
+__.removeItem( key:String ):void__
 
 移除某键位下的数据
 
-** .clear():void **
+__.clear():void__
 
 清空已持久化的数据
  
-** .key():Array **
+__.key():Array__
 
 获得持久化数据的key
 
-** .on(eventName:String, callback:Function):void **
+__.on(eventName:String, callback:Function):void__
 
 事件绑定。目前只支持*Storage.Event.OUT_OF_LIMIT*事件。

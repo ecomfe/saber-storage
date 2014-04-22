@@ -1,7 +1,7 @@
 saber-storage [![Build Status](https://travis-ci.org/ecomfe/saber-storage.svg?branch=develop)](https://travis-ci.org/ecomfe/saber-storage)
 ===
 
-移动端本地存储模块
+移动端本地存储模块。
 
 ## Usage
 
@@ -45,11 +45,10 @@ storage.on( Storage.Event.OUT_OF_LIMIT, function( error ) {
 Storage({
     [optional] storageId:String,
     [optional] memoryCache=false:Boolean
-})
+});
 ```
 
 + `storageId`: 存储命名空间，默认存储在 `_SABER` 命名空间下
-
 + `memoryCache`: 是否开启内存级别缓存，即只存储至页面变量中，而不持久化数据。默认 `false`。
 
 ### Events

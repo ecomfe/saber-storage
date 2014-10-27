@@ -1,7 +1,15 @@
 saber-storage [![Build Status](https://travis-ci.org/ecomfe/saber-storage.svg?branch=develop)](https://travis-ci.org/ecomfe/saber-storage)
 ===
 
-移动端本地存储模块。
+移动端本地存储模块。使用LocalStorage进行本地存储，提供了存储溢出的事件。
+
+## Installation
+
+通过 [edp](https://github.com/ecomfe/edp) 引入模块：
+
+```sh
+edp import saber-storage
+```
 
 ## Usage
 
@@ -42,18 +50,17 @@ storage.on( Storage.Event.OUT_OF_LIMIT, function( error ) {
 ### Constructor
 
 ```javascript
-Storage({
-    [optional] storageId:String,
-    [optional] memoryCache=false:Boolean
-});
+var storage = new Storage(storageId[, memoryCache]);
 ```
 
-+ `storageId`: 存储命名空间，默认存储在 `_SABER` 命名空间下
-+ `memoryCache`: 是否开启内存级别缓存，即只存储至页面变量中，而不持久化数据。默认 `false`。
+* **storageId** `{String}`: 存储命名空间，默认存储在 `_SABER` 命名空间下
+* **memoryCache** `{Boolean}`: 可选项。是否开启内存级别缓存，即只存储至页面变量中，而不持久化数据。默认 `false`。
 
 ### Events
 
-__Storage.Event.OUT_OF_LIMIT__
+#### _Storage.Event.OUT_OF_LIMIT_
+
+通过.on(eventName, callback)方法监听事件。
 
 存储空间溢出事件。当本次存储超出时，会派发该事件。需要提前监听。
 
@@ -61,31 +68,54 @@ __Storage.Event.OUT_OF_LIMIT__
 
 ### Methods
 
-__.isSupport():Boolean__
+#### isSupport()
 
 判断是否支持本地存储
 
-__.setItem( key:String, val:\* ):Boolean__
+* _return_ `{Boolean}` 是否支持
+
+
+#### setItem( key, val )
 
 存入数据
 
-__.getItem( key:String ):\*__
+* **key** `{String}` 存储键名
+* **val** `{*}` 对应键名下的数据
+* _return_ `{Boolean}` 是否存储成功
 
-根据key返回数据
+#### getItem( key )
 
-__.removeItem( key:String ):void__
+根据键名返回数据
 
-移除某键位下的数据
+* **key** `{String}` 存储键名
+* _return_ `{*}` 对应键名下的数据
 
-__.clear():void__
+
+#### removeItem( key )
+
+移除某键名下的数据
+
+* **key** `{String}` 存储键名
+* _return_ `{void}`
+
+
+#### clear()
 
 清空已持久化的数据
+
+* _return_ `{void}`
  
-__.key():Array__
+### key()
 
 获得持久化数据的key
 
-__.on(eventName:String, callback:Function):void__
+* _return_ `{Array}` 键名数组
 
-事件绑定。目前只支持 *Storage.Event.OUT_OF_LIMIT* 事件。
+#### on(eventName:String, callback:Function)
+
+事件绑定。目前只支持 _Storage.Event.OUT_OF_LIMIT_ 事件。
+
+* **eventName** `{String}` 事件名 
+* **callback** `{Function}` 回调函数
+* _return_ `{void}`
 

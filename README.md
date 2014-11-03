@@ -13,16 +13,16 @@ edp import saber-storage
 
 ## Usage
 
-```javascript
-var Storage = require( 'saber-storage' );
+```js
+var Storage = require('saber-storage');
 var storage = new Storage({
     storageId: 'someNameDomain',    // optional
-    memoryCache: false    // optional
+    memoryCache: false      // optional
 });
 // 存入
-storage.setItem( 'string', 'this is a string' );
-storage.setItem( 'object', { a: 1 } );
-var isSuccess = storage.setItem( 'array', [1, 2, 3, 4] );
+storage.setItem('string', 'this is a string');
+storage.setItem('object', {a: 1});
+var isSuccess = storage.setItem('array', [1, 2, 3, 4]);
 
 if (isSuccess) {
     // Save success!
@@ -31,16 +31,16 @@ if (isSuccess) {
 }
 
 // 取出
-var value = storage.getItem( 'string' );
+var value = storage.getItem('string');
 
 // 移除某一键值下的数据
-storage.removeItem( 'string' );
+storage.removeItem('string');
 
 // 清空全部数据
 storage.clear();
 
 //事件派发
-storage.on( Storage.Event.OUT_OF_LIMIT, function( error ) {
+storage.on(Storage.Event.OUT_OF_LIMIT, function(error) {
     // 空间存满
 } );
 ```
@@ -49,7 +49,7 @@ storage.on( Storage.Event.OUT_OF_LIMIT, function( error ) {
 
 ### Constructor
 
-```javascript
+```js
 var storage = new Storage(storageId[, memoryCache]);
 ```
 
@@ -58,7 +58,7 @@ var storage = new Storage(storageId[, memoryCache]);
 
 ### Events
 
-#### _Storage.Event.OUT_OF_LIMIT_
+#### _Storage.Event.OUT\_OF\_LIMIT_
 
 通过.on(eventName, callback)方法监听事件。
 
@@ -75,7 +75,7 @@ var storage = new Storage(storageId[, memoryCache]);
 * _return_ `{Boolean}` 是否支持
 
 
-#### setItem( key, val )
+#### setItem(key, val)
 
 存入数据
 
@@ -83,7 +83,7 @@ var storage = new Storage(storageId[, memoryCache]);
 * **val** `{*}` 对应键名下的数据
 * _return_ `{Boolean}` 是否存储成功
 
-#### getItem( key )
+#### getItem(key)
 
 根据键名返回数据
 
@@ -91,13 +91,12 @@ var storage = new Storage(storageId[, memoryCache]);
 * _return_ `{*}` 对应键名下的数据
 
 
-#### removeItem( key )
+#### removeItem(key)
 
 移除某键名下的数据
 
 * **key** `{String}` 存储键名
 * _return_ `{void}`
-
 
 #### clear()
 
@@ -113,7 +112,7 @@ var storage = new Storage(storageId[, memoryCache]);
 
 #### on(eventName:String, callback:Function)
 
-事件绑定。目前只支持 _Storage.Event.OUT_OF_LIMIT_ 事件。
+事件绑定。目前只支持 _Storage.Event.OUT\_OF\_LIMIT_ 事件。
 
 * **eventName** `{String}` 事件名 
 * **callback** `{Function}` 回调函数

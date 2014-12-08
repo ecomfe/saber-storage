@@ -1,6 +1,6 @@
 /**
  * @file Storage for mobile
- * @author qiaogang@baidu.com
+ * @author qiaogang2003@163.com
  * 接口标准参考: http://www.w3.org/TR/webstorage/
  */
 define(function (require) {

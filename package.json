@@ -4,7 +4,7 @@
     "description": "移动端的本地存储库",
     "main": "storage",
     "maintainers": [
-        { "name": "redmed", "email": "qiaogang@baidu.com" }
+        { "name": "redmed", "email": "qiaogang2003@163.com" }
     ],
     "scripts": {
         "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"

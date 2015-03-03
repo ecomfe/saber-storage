@@ -14,7 +14,7 @@ define(function (require, exports, module) {
 
     function setData(storage, data) {
         var core = storage.core;
-        core.setItem(storage.id, JSON.stringiyf(data));
+        core.setItem(storage.id, JSON.stringify(data));
     }
 
     function removeData(storage) {
@@ -35,7 +35,7 @@ define(function (require, exports, module) {
     Storage.prototype.setItem = function (key, value) {
         var data = getData(this);
         data[key] = value;
-        setData(data);
+        setData(this, data);
     };
 
     Storage.prototype.getItem = function (key) {

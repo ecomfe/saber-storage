@@ -1,21 +1,35 @@
 {
-    "name": "saber-storage",
-    "version": "1.0.0",
-    "description": "移动端的本地存储库",
-    "main": "storage",
-    "maintainers": [
-        { "name": "redmed", "email": "qiaogang2003@163.com" }
-    ],
-    "scripts": {
-        "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"
-    },
-    "repository": "https://github.com/ecomfe/saber-storage.git",
-    "keywords": [
-        "localstorage", "storage"
-    ],
-    "devDependencies": {
-        "phantomjs": "~1.9"
-    },
-    "license": "MIT",
-    "bugs": "https://github.com/ecomfe/saber-storage/issues"
+  "name": "saber-storage",
+  "version": "1.0.0",
+  "description": "移动端的本地存储库",
+  "main": "main",
+  "maintainers": [
+    {
+      "name": "redmed",
+      "email": "qiaogang2003@163.com"
+    }
+  ],
+  "scripts": {
+    "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"
+  },
+  "repository": "https://github.com/ecomfe/saber-storage.git",
+  "keywords": [
+    "localstorage",
+    "storage"
+  ],
+  "edp": {
+    "dependencies": {
+      "saber-lang": "~1.0.0"
+    }
+  },
+  "dependencies": {
+    "express-session": "^1.10.3",
+    "saber-lang": "^1.0.0"
+  },
+  "devDependencies": {
+    "c2a": "^0.2.0",
+    "phantomjs": "~1.9"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/ecomfe/saber-storage/issues"
 }

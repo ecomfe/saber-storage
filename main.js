@@ -23,7 +23,7 @@ module.exports = function () {
  * Plugin for Rebas
  *
  * @public
- * @param {Object} app
+ * @param {Object} app server
  * @param {Object=} options session配置
  */
 module.exports.rebas = function (app, options) {

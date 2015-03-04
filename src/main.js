@@ -26,11 +26,11 @@ define(function (require) {
             var support = value === storage.getItem(key);
             storage.removeItem(key);
 
-            return storage;
+            return support;
         }
         catch (e) {
             return false;
-        } 
+        }
     }
 
     /**
@@ -40,8 +40,8 @@ define(function (require) {
      */
     var cores = {
         memory: require('./memoryStorage'),
-        local: check('localStorage') ? window['localStorage'] : null,
-        session: check('sessionStorage') ? window['sessionStorage'] : null
+        local: check('localStorage') ? window.localStorage : null,
+        session: check('sessionStorage') ? window.sessionStorage : null
     };
 
     /**

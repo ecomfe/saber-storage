@@ -59,6 +59,7 @@ define(function () {
                     storage.clear();
                     var data = storage.core.getItem(storage.id);
                     expect(!data).toBeTruthy();
+                    expect(storage.key()).toEqual([]);
                 });
             });
 

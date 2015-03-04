@@ -9,6 +9,12 @@
       "email": "qiaogang2003@163.com"
     }
   ],
+  "contributors": [
+    {
+      "name": "treelite",
+      "email": "c.xinle@gmail.com"
+    }
+  ],
   "scripts": {
     "test": "jasmine-node --verbose test/runSpec.js && phantomjs test/run-jasmine.js test/runner.html"
   },
@@ -19,16 +25,16 @@
   ],
   "edp": {
     "dependencies": {
-      "saber-lang": "~1.0.0"
+      "saber-lang": "~2.0.0-alpha.1"
     }
   },
   "dependencies": {
     "express-session": "^1.10.3",
-    "saber-lang": "^1.0.0"
+    "saber-lang": "^2.0.0-alpha.1"
   },
   "devDependencies": {
     "amder": "^0.1.0",
-    "c2a": "^0.2.0",
+    "c2a": "^0.3.0",
     "jasmine-node": "^2.0.0-beta4",
     "phantomjs": "^1.9.16"
   },

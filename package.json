@@ -10,7 +10,7 @@
     }
   ],
   "scripts": {
-    "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"
+    "test": "jasmine-node --verbose test/runSpec.js && phantomjs test/run-jasmine.js test/runner.html"
   },
   "repository": "https://github.com/ecomfe/saber-storage.git",
   "keywords": [
@@ -27,8 +27,10 @@
     "saber-lang": "^1.0.0"
   },
   "devDependencies": {
+    "amder": "^0.1.0",
     "c2a": "^0.2.0",
-    "phantomjs": "~1.9"
+    "jasmine-node": "^2.0.0-beta4",
+    "phantomjs": "^1.9.16"
   },
   "license": "MIT",
   "bugs": "https://github.com/ecomfe/saber-storage/issues"

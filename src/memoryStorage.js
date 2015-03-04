@@ -1,13 +1,10 @@
-/**
- * @file Memory Storage
- * @author treelite(c.xinle@gmail.com)
- */
-
-define(function () {
+define(function (require, exports, module) {
+    /**
+     * @file Memory Storage
+     * @author treelite(c.xinle@gmail.com)
+     */
 
     var store = {};
-
-    var exports = {};
 
     exports.getItem = function (key) {
         return store[key];
@@ -20,7 +17,4 @@ define(function () {
     exports.removeItem = function (key) {
         delete store[key];
     };
-
-    return exports;
-
 });

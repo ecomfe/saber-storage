@@ -6,7 +6,8 @@
 var Storage = require('./lib/Storage');
 var extend = require('saber-lang').extend;
 
-var core;
+// 默认的存储核心为内存
+var core = require('./lib/memoryStorage');
 
 /**
  * 获取存储对象
@@ -52,7 +53,7 @@ module.exports.rebas = function (app, options) {
         return context.req.session;
     }
 
-    // 构建存储核心
+    // 重载存储核心为session
     core = {
         getItem: function (key) {
             var session = getSession();

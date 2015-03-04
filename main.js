@@ -43,7 +43,12 @@ module.exports.rebas = function (app, options) {
 
     // 同步session数据
     app.after(function (req, res, next) {
-        res.syncData.session = extend({}, req.session);
+        var storage = module.exports();
+        var session = {};
+        storage.key().forEach(function (name) {
+            session[name] = storage.getItem(name);
+        });
+        res.syncData.session = session;
         next();
     });
 

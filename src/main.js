@@ -10,6 +10,13 @@ define(function (require) {
     var DEFALUT_CORE = 'memory';
 
     /**
+     * 存储对象缓存
+     *
+     * @type {Array}
+     */
+    var storages = [];
+
+    /**
      * 存储能力检测
      *
      * @inner
@@ -57,19 +64,27 @@ define(function (require) {
 
         if (core) {
             var Storage = require('./Storage');
-            return new Storage(location.hostname, core, initialData);
+            var storage = new Storage(location.hostname, core, initialData);
+            storages.push(storage);
+            return storage;
         }
         return core;
     }
 
     /**
-     * 填充初始化数据
+     * 同步初始化数据
      *
      * @public
      * @param {Object} app server
      */
-    Storage.fill = function (app) {
-        initialData = app.getSyncData('session');
+    Storage.sync = function (app) {
+        var data = initialData = app.getSyncData('session');
+
+        storages.forEach(function (storage) {
+            Object.keys(data).forEach(function (key) {
+                storage.setItem(key, data[key]);
+            });
+        });
     };
 
     return Storage;

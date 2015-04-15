@@ -35,7 +35,10 @@ module.exports.rebas = function (app, options) {
             {
                 secret: 'rebas',
                 resave: false,
-                saveUninitialized: true
+                saveUninitialized: true,
+                genid: function (req) {
+                    return req.uid;
+                }
             },
             options
         )

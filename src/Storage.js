@@ -119,5 +119,15 @@ define(function (require, exports, module) {
         return Object.keys(data);
     };
 
+    /**
+     * 获取所有存储的数据
+     *
+     * @public
+     * @return {Object}
+     */
+    Storage.prototype.getAllItems = function () {
+        return getData(this);
+    };
+
     module.exports = Storage;
 });

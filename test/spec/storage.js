@@ -63,6 +63,15 @@ define(function () {
                 });
             });
 
+            describe('.getAllItems{}', function () {
+                it('Get all items', function () {
+                    storage.setItem('name', 'saber');
+                    storage.setItem('age', 10);
+
+                    expect(storage.getAllItems()).toEqual({name: 'saber', age: 10});
+                });
+            });
+
         });
     };
 });

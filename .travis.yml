@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - 0.10
 before_install:
-  - git clone https://github.com/ecomfe/saber-lang.git --branch=2.0/develop test/dep/saber-lang/2.0.0-alpha.1
+  - git clone https://github.com/ecomfe/saber-lang.git --branch=2.0/develop test/dep/saber-lang/2.0.0-beta.1

@@ -1,5 +1,7 @@
-saber-storage [![Build Status](https://travis-ci.org/ecomfe/saber-storage.svg?branch=develop)](https://travis-ci.org/ecomfe/saber-storage)
+saber-storage
 ===
+
+![Bower version](https://img.shields.io/bower/v/saber-storage.svg?style=flat-square) [![Build Status](https://img.shields.io/travis/ecomfe/saber-storage/1.0/develop.svg?style=flat-square)](https://travis-ci.org/ecomfe/saber-ajax) [![License](https://img.shields.io/npm/l/saber-storage.svg?style=flat-square)](./LICENSE) [![EFE Mobile Team](https://img.shields.io/badge/EFE-Mobile_Team-blue.svg?style=flat-square)](http://efe.baidu.com)
 
 移动端本地存储模块。使用LocalStorage进行本地存储，提供了存储溢出的事件。
 

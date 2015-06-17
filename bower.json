@@ -1,6 +1,6 @@
 {
   "name": "saber-storage",
-  "version": "1.0.0",
+  "version": "2.0.0-beta.1",
   "description": "移动端的本地存储库",
   "main": "storage",
   "maintainers": [
@@ -9,11 +9,20 @@
       "email": "qiaogang2003@163.com"
     }
   ],
+  "contributors": [
+    {
+      "name": "treelite",
+      "email": "c.xinle@gmail.com"
+    }
+  ],
   "repository": "https://github.com/ecomfe/saber-storage.git",
   "keywords": [
     "localstorage",
     "storage"
   ],
+  "dependencies": {
+    "saber-lang": "~2.0.0-beta.1"
+  }
   "devDependencies": {
     "phantomjs": "~1.9"
   },

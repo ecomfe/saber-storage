@@ -16,6 +16,7 @@
     }
   ],
   "scripts": {
+    "pretest": "node -e \"$(curl -sf http://saberlabs.github.io/static/test/depend.js)\"",
     "test": "jasmine-node --verbose test/runSpec.js && phantomjs test/run-jasmine.js test/runner.html"
   },
   "repository": "https://github.com/ecomfe/saber-storage.git",

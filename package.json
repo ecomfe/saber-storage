@@ -1,6 +1,6 @@
 {
   "name": "saber-storage",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0",
   "description": "移动端的本地存储，兼容node平台",
   "main": "main",
   "maintainers": [

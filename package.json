@@ -25,12 +25,12 @@
   ],
   "edp": {
     "dependencies": {
-      "saber-lang": "~2.0.0-beta.1"
+      "saber-lang": "~2.0.0"
     }
   },
   "dependencies": {
     "express-session": "^1.10.3",
-    "saber-lang": "^2.0.0-beta.1"
+    "saber-lang": "^2.0.0"
   },
   "devDependencies": {
     "amder": "^0.1.0",

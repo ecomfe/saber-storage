@@ -3,79 +3,52 @@ saber-storage
 
 ![Bower version](https://img.shields.io/bower/v/saber-storage.svg?style=flat-square) [![NPM version](https://img.shields.io/npm/v/saber-storage.svg?style=flat-square)](https://npmjs.org/package/saber-storage) [![Build Status](https://img.shields.io/travis/ecomfe/saber-storage.svg?style=flat-square)](https://travis-ci.org/ecomfe/saber-storage) [![License](https://img.shields.io/npm/l/saber-storage.svg?style=flat-square)](./LICENSE) [![EFE Mobile Team](https://img.shields.io/badge/EFE-Mobile_Team-blue.svg?style=flat-square)](http://efe.baidu.com)
 
-移动端本地存储模块。使用LocalStorage进行本地存储，提供了存储溢出的事件。
+移动端本地存储模块，提供 `memory`、`session` 与 `local` 三种存储模式，并且兼容 node 环境
 
 ## Installation
 
 通过 [edp](https://github.com/ecomfe/edp) 引入模块：
 
 ```sh
-edp import saber-storage
+$ edp import saber-storage
+```
+
+或者在 node 环境下使用 `npm` 引入模块：
+
+```sh
+$ npm install saber-storage --save
 ```
 
 ## Usage
 
 ```js
 var Storage = require('saber-storage');
-var storage = new Storage({
-    storageId: 'someNameDomain',    // optional
-    memoryCache: false      // optional
-});
+
+// 使用localStorage进行本地存储
+var storage = new Storage('local');
+
 // 存入
 storage.setItem('string', 'this is a string');
 storage.setItem('object', {a: 1});
-var isSuccess = storage.setItem('array', [1, 2, 3, 4]);
 
-if (isSuccess) {
-    // Save success!
-} else {
-    // Save fail!
-}
-
-// 取出
-var value = storage.getItem('string');
-
-// 移除某一键值下的数据
-storage.removeItem('string');
-
-// 清空全部数据
-storage.clear();
-
-//事件派发
-storage.on(Storage.Event.OUT_OF_LIMIT, function(error) {
-    // 空间存满
-} );
+// {a: 1}
+storage.getItem('object');
 ```
 
 ## API
 
 ### Constructor
 
-```js
-var storage = new Storage(storageId[, memoryCache]);
-```
+#### Storage(type)
 
-* **storageId** `{String}`: 存储命名空间，默认存储在 `_SABER` 命名空间下
-* **memoryCache** `{Boolean}`: 可选项。是否开启内存级别缓存，即只存储至页面变量中，而不持久化数据。默认 `false`。
+* **type** `{string=}` 存储类型，支持以下取值：
+    * **memory** 内存存储
+    * **session** `sessionStorage` 存储
+    * **local** `localStorage` 存储
 
-### Events
-
-#### _Storage.Event.OUT\_OF\_LIMIT_
-
-通过.on(eventName, callback)方法监听事件。
-
-存储空间溢出事件。当本次存储超出时，会派发该事件。需要提前监听。
-
-常见浏览器支持空间为5M左右。
+node 环境下目前支持 `memory` 内存存储，可以做为 [rebas](https://github.com/ecomfe/rebas) 的插件提供基于内存的 `session` 数据存储
 
 ### Methods
-
-#### isSupport()
-
-判断是否支持本地存储
-
-* _return_ `{Boolean}` 是否支持
-
 
 #### setItem(key, val)
 
@@ -83,7 +56,6 @@ var storage = new Storage(storageId[, memoryCache]);
 
 * **key** `{String}` 存储键名
 * **val** `{*}` 对应键名下的数据
-* _return_ `{Boolean}` 是否存储成功
 
 #### getItem(key)
 
@@ -91,7 +63,6 @@ var storage = new Storage(storageId[, memoryCache]);
 
 * **key** `{String}` 存储键名
 * _return_ `{*}` 对应键名下的数据
-
 
 #### removeItem(key)
 
@@ -106,17 +77,14 @@ var storage = new Storage(storageId[, memoryCache]);
 
 * _return_ `{void}`
  
-### key()
+#### key()
 
 获得持久化数据的key
 
 * _return_ `{Array}` 键名数组
 
-#### on(eventName:String, callback:Function)
+#### getAllItems()
 
-事件绑定。目前只支持 _Storage.Event.OUT\_OF\_LIMIT_ 事件。
+获取所有存储的数据
 
-* **eventName** `{String}` 事件名 
-* **callback** `{Function}` 回调函数
-* _return_ `{void}`
-
+* _return_ `{Object}` 存储的数据
